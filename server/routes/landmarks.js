@@ -13,14 +13,15 @@ import * as landmarkServices from '../services/landmarkServices.js'
 // Ask serviceLandmarks.js and send it back
 const router = express.Router()
 
-// GET all landmarks
+// Get all landmarks and filtering
 router.get('/', async (req, res) => {
     try {
-        const data = await landmarkServices.getAllLandmarks()
+        const filters = req.query
+        const data = await landmarkServices.getAllLandmarks(filters)
         res.json(data)
     }
     catch (err) {
-        res.status(500).json({ error: 'Failed to get all landmarks'})
+        res.status(500).json({ error: 'Failed to get landmarks' })
     }
 })
 
@@ -65,7 +66,7 @@ router.put('/:id', async (req, res) => {
         const updated = await landmarkServices.updateLandmark(id, updatedData) // send to landmarksServices.js
 
         if(!updated){
-            res.status(404).json({ error: 'Landmark not found '}) //  can't find landmark
+            return res.status(404).json({ error: 'Landmark not found '}) //  can't find landmark
         }
 
         // Return updated object
@@ -86,7 +87,7 @@ router.delete('/:id', async (req, res) => {
         const deleted = await landmarkServices.deleteLandmark(id)
         
         if(!deleted){
-            res.status(404).json({ error: 'Landmark not deleted '}) //  can't find landmark
+            return res.status(404).json({ error: 'Landmark not deleted '}) //  can't find landmark
         }
 
         res.json({ message: 'Landmark deleted '})
@@ -96,23 +97,7 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-// Export the router
-export default router
-
-// Filtering
-router.get('/', async (req, res) => {
-    try {
-        const filters = req.query
-
-        const data = await landmarkServices.getAllLandmarks(filters)
-
-        res.json(data)
-    }
-    catch (err) {
-        res.status(500).json({ error: 'Failed to get landmarks' })
-    }
-})
-
+// Favourite system
 router.patch('/:id/favourite', async (req, res) => {
     try {
         const id = req.params.id
@@ -128,3 +113,6 @@ router.patch('/:id/favourite', async (req, res) => {
         res.status(500).json({ error: 'Failed to update landmark favourite' })
     }
 })
+
+// Export the router
+export default router
