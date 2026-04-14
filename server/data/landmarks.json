@@ -63,7 +63,8 @@
     "yearBuilt": 80,
     "description": "Ancient Roman amphitheatre used for gladiatorial contests.",
     "latitude": 41.8902,
-    "longitude": 12.4922
+    "longitude": 12.4922,
+    "favourite": false
   },
   {
     "id": 7,
@@ -74,7 +75,8 @@
     "yearBuilt": 1859,
     "description": "Famous clock tower at the Palace of Westminster.",
     "latitude": 51.5007,
-    "longitude": -0.1246
+    "longitude": -0.1246,
+    "favourite": false
   },
   {
     "id": 8,
@@ -85,7 +87,8 @@
     "yearBuilt": 1973,
     "description": "Multi-venue performing arts centre in Sydney Harbour.",
     "latitude": -33.8568,
-    "longitude": 151.2153
+    "longitude": 151.2153,
+    "favourite": false
   },
   {
     "id": 9,
@@ -96,7 +99,8 @@
     "yearBuilt": 1931,
     "description": "Art Deco statue of Jesus Christ overlooking Rio.",
     "latitude": -22.9519,
-    "longitude": -43.2105
+    "longitude": -43.2105,
+    "favourite": false
   },
   {
     "id": 10,
@@ -107,6 +111,7 @@
     "yearBuilt": null,
     "description": "Japan's highest mountain and an active stratovolcano.",
     "latitude": 35.3606,
-    "longitude": 138.7274
+    "longitude": 138.7274,
+    "favourite": false
   }
 ]
