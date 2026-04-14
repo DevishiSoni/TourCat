@@ -8,7 +8,10 @@
     "yearBuilt": 1976,
     "description": "A famous communications and observation tower in Toronto.",
     "latitude": 43.6426,
-    "longitude": -79.3871
+    "longitude": -79.3871,
+    "favourite": false,
+    "image": "/images/cnTower.jpg"
+    
   },
   {
     "id": 2,
@@ -19,7 +22,9 @@
     "yearBuilt": 1889,
     "description": "Iconic iron lattice tower located on the Champ de Mars in Paris.",
     "latitude": 48.8584,
-    "longitude": 2.2945
+    "longitude": 2.2945,
+    "favourite": false,
+    "image": "/images/eiffelTower.jpg"
   },
   {
     "id": 3,
@@ -30,7 +35,9 @@
     "yearBuilt": 1886,
     "description": "A symbol of freedom located on Liberty Island.",
     "latitude": 40.6892,
-    "longitude": -74.0445
+    "longitude": -74.0445,
+    "favourite": false,
+    "image": "/images/statueOfLiberty.jpg"
   },
   {
     "id": 4,
@@ -41,7 +48,9 @@
     "yearBuilt": 700,
     "description": "Ancient series of walls and fortifications across northern China.",
     "latitude": 40.4319,
-    "longitude": 116.5704
+    "longitude": 116.5704,
+    "favourite": false,
+    "image": "/images/china.jpg"
   },
   {
     "id": 5,
@@ -52,7 +61,9 @@
     "yearBuilt": 1653,
     "description": "White marble mausoleum built by Mughal emperor Shah Jahan.",
     "latitude": 27.1751,
-    "longitude": 78.0421
+    "longitude": 78.0421,
+    "favourite": false,
+    "image": "/images/tajMahal.jpg"
   },
   {
     "id": 6,
@@ -64,7 +75,8 @@
     "description": "Ancient Roman amphitheatre used for gladiatorial contests.",
     "latitude": 41.8902,
     "longitude": 12.4922,
-    "favourite": false
+    "favourite": false,
+    "image": "/images/colosseum.jpg"
   },
   {
     "id": 7,
@@ -76,7 +88,8 @@
     "description": "Famous clock tower at the Palace of Westminster.",
     "latitude": 51.5007,
     "longitude": -0.1246,
-    "favourite": false
+    "favourite": false,
+    "image": "/images/bigBen.jpg"
   },
   {
     "id": 8,
@@ -88,7 +101,8 @@
     "description": "Multi-venue performing arts centre in Sydney Harbour.",
     "latitude": -33.8568,
     "longitude": 151.2153,
-    "favourite": false
+    "favourite": false,
+    "image": "/images/operaHouse.jpg"
   },
   {
     "id": 9,
@@ -100,7 +114,8 @@
     "description": "Art Deco statue of Jesus Christ overlooking Rio.",
     "latitude": -22.9519,
     "longitude": -43.2105,
-    "favourite": false
+    "favourite": false,
+    "image": "/images/theRedeemerStatue.jpg"
   },
   {
     "id": 10,
@@ -112,6 +127,7 @@
     "description": "Japan's highest mountain and an active stratovolcano.",
     "latitude": 35.3606,
     "longitude": 138.7274,
-    "favourite": false
+    "favourite": false,
+    "image": "/images/mountFuji.jpg"
   }
 ]
