@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "CN Tower",
+    "country": "Canada",
+    "city": "Toronto",
+    "type": "Modern",
+    "yearBuilt": 1976,
+    "description": "A famous communications and observation tower in Toronto.",
+    "latitude": 43.6426,
+    "longitude": -79.3871
+  },
+  {
+    "id": 2,
+    "name": "Eiffel Tower",
+    "country": "France",
+    "city": "Paris",
+    "type": "Historical",
+    "yearBuilt": 1889,
+    "description": "Iconic iron lattice tower located on the Champ de Mars in Paris.",
+    "latitude": 48.8584,
+    "longitude": 2.2945
+  },
+  {
+    "id": 3,
+    "name": "Statue of Liberty",
+    "country": "USA",
+    "city": "New York",
+    "type": "Historical",
+    "yearBuilt": 1886,
+    "description": "A symbol of freedom located on Liberty Island.",
+    "latitude": 40.6892,
+    "longitude": -74.0445
+  },
+  {
+    "id": 4,
+    "name": "Great Wall of China",
+    "country": "China",
+    "city": "Beijing",
+    "type": "Historical",
+    "yearBuilt": 700,
+    "description": "Ancient series of walls and fortifications across northern China.",
+    "latitude": 40.4319,
+    "longitude": 116.5704
+  },
+  {
+    "id": 5,
+    "name": "Taj Mahal",
+    "country": "India",
+    "city": "Agra",
+    "type": "Historical",
+    "yearBuilt": 1653,
+    "description": "White marble mausoleum built by Mughal emperor Shah Jahan.",
+    "latitude": 27.1751,
+    "longitude": 78.0421
+  },
+  {
+    "id": 6,
+    "name": "Colosseum",
+    "country": "Italy",
+    "city": "Rome",
+    "type": "Historical",
+    "yearBuilt": 80,
+    "description": "Ancient Roman amphitheatre used for gladiatorial contests.",
+    "latitude": 41.8902,
+    "longitude": 12.4922
+  },
+  {
+    "id": 7,
+    "name": "Big Ben",
+    "country": "United Kingdom",
+    "city": "London",
+    "type": "Historical",
+    "yearBuilt": 1859,
+    "description": "Famous clock tower at the Palace of Westminster.",
+    "latitude": 51.5007,
+    "longitude": -0.1246
+  },
+  {
+    "id": 8,
+    "name": "Sydney Opera House",
+    "country": "Australia",
+    "city": "Sydney",
+    "type": "Modern",
+    "yearBuilt": 1973,
+    "description": "Multi-venue performing arts centre in Sydney Harbour.",
+    "latitude": -33.8568,
+    "longitude": 151.2153
+  },
+  {
+    "id": 9,
+    "name": "Christ the Redeemer",
+    "country": "Brazil",
+    "city": "Rio de Janeiro",
+    "type": "Religious",
+    "yearBuilt": 1931,
+    "description": "Art Deco statue of Jesus Christ overlooking Rio.",
+    "latitude": -22.9519,
+    "longitude": -43.2105
+  },
+  {
+    "id": 10,
+    "name": "Mount Fuji",
+    "country": "Japan",
+    "city": "Honshu",
+    "type": "Natural",
+    "yearBuilt": null,
+    "description": "Japan's highest mountain and an active stratovolcano.",
+    "latitude": 35.3606,
+    "longitude": 138.7274
+  }
+]
