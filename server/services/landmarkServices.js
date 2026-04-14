@@ -18,9 +18,9 @@ const dataPath = path.join(__dirname, '../data/landmarks.json')
 // Get all landmarks and get all landmarks filtered
 export const getAllLandmarks = async (filters = {}) => {
     const data = await fs.promises.readFile(dataPath, 'utf8').catch(() => '{}')
-    const json = JSON.parse(data)
+    const json = JSON.parse(data || '{}')
 
-    let landmarks = json.landmarks
+    let landmarks = json.landmarks || []
 
     // Filter by city
     if(filters.city){
@@ -44,7 +44,9 @@ export const getAllLandmarks = async (filters = {}) => {
 export const getLandmarkById = async (id) => {
     const data = await fs.promises.readFile(dataPath, 'utf8').catch(() => '{}')
     const json = JSON.parse(data)
-    return json.landmarks.find(l => l.id === parseInt(id))
+    let landmarks = json.landmarks || []
+    const landmarkId = parseInt(id)
+    return landmarks.find(l => l.id === landmarkId)
 }
 
 // Create a new landmark
@@ -52,16 +54,20 @@ export const createLandmark = async (newLandmark) => {
     const data = await fs.promises.readFile(dataPath, 'utf8').catch(() => '{}')
     const json = JSON.parse(data) // convert data from JSON to object
 
+
+    let landmarks = json.landmarks || []
     // Create new ID (last ID + 1 or 1 if landmarks is empty)
-    const newID = json.landmarks.length ? Math.max(...json.landmarks.map(l => l.id)) + 1 : 1
+    const newID = landmarks.length ? Math.max(...landmarks.map(l => l.id)) + 1 : 1
     // Build landmark object
     const landmarkToAdd = {
         id: newID,
         ...newLandmark
     }
     // Adds to list
-    json.landmarks.push(landmarkToAdd)
+    landmarks.push(landmarkToAdd)
     // Pushes to file
+
+    json.landmarks = landmarks
     await fs.promises.writeFile(dataPath, JSON.stringify(json, null, 2))
     return landmarkToAdd
 }
@@ -71,18 +77,21 @@ export const updateLandmark = async (id, updatedData) => {
     const data = await fs.promises.readFile(dataPath, 'utf8').catch(() => '{}')
     const json = JSON.parse(data) // convert data from JSON to object
 
-    const index = json.landmarks.findIndex(l => l.id === parseInt(id))
+    const landmarkId = parseInt(id)
+    let landmarks = json.landmarks || []
+    const index = landmarks.findIndex(l => l.id === landmarkId)
 
     if (index === -1){
         return null //can't find
     }
 
     // update
-    json.landmarks[index] = {...json.landmarks[index], ...updatedData}
+    landmarks[index] = {...landmarks[index], ...updatedData}
 
+    json.landmarks = landmarks
     await fs.promises.writeFile(dataPath, JSON.stringify(json, null, 2))
 
-    return json.landmarks[index]
+    return landmarks[index]
 }
 
 // Delete an existing landmark
@@ -90,15 +99,17 @@ export const deleteLandmark = async (id) => {
     const data = await fs.promises.readFile(dataPath, 'utf8').catch(() => '{}')
     const json = JSON.parse(data) // convert data from JSON to object
 
-    const index = json.landmarks.findIndex(l => l.id === parseInt(id))
+    let landmarks = json.landmarks || []
+    const landmarkId = parseInt(id)
+    const index = landmarks.findIndex(l => l.id === landmarkId)
 
     if (index === -1){
         return null //can't find
     }
 
     // remove landmark
-    const deletedLandmark = json.landmarks.splice(index, 1)
-
+    const deletedLandmark = landmarks.splice(index, 1)
+    json.landmarks = landmarks
     await fs.promises.writeFile(dataPath, JSON.stringify(json, null, 2))
 
     return deletedLandmark[0]
@@ -109,7 +120,9 @@ export const updateFavourite = async (id) => {
     const data = await fs.promises.readFile(dataPath, 'utf8').catch(() => '{}')
     const json = JSON.parse(data) // convert data from JSON to object
 
-    const landmark = json.landmarks.find(l => l.id === parseInt(id))
+    let landmarks = json.landmarks || []
+    const landmarkId = parseInt(id)
+    const landmark = landmarks.find(l => l.id === landmarkId)
 
     if (!landmark){
         return null //can't find
