@@ -1,5 +1,4 @@
-function testAPI() {
-    fetch('http://localhost:3000/api/test')
-        .then(res => res.json())
-        .then(data => console.log(data));
-}
+import {createApp} from 'vue'
+import App from './App.vue'
+
+createApp(App).mount('#app')
