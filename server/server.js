@@ -1,14 +1,10 @@
-// Main backend starter/base server
-// Starts Express server
-// Sets up middleware
-// Connect routes
-// Chooses port
-// Turns backend on and brings everything together
+// Main backend starter/base server.
+// Starts Express server, sets up middleware, connects routes, initializes port and ultimately starts the backend.
 
 // Imports
 import express from 'express' // routes, server
 import path from 'path' // build safe file paths
-import cors from 'cors'
+import cors from 'cors' // frontend and backend communication even on different ports
 import process from 'process' // access to environment variables
 import fs from 'fs' // reads files from computer
 import { fileURLToPath } from 'url' // ES module limitation fix
