@@ -19,7 +19,7 @@
 import LandmarkCard from '../components/LandmarkCard.vue';
 import SearchBar from '../components/SearchBar.vue';
 import FilterPanel from '../components/FilterPanel.vue';
-import { getLocations } from '../services/landmarkServices.js';
+import { getLocations } from '../services/clientServices.js';
 
 export default {
   components: { LandmarkCard, SearchBar, FilterPanel },
