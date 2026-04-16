@@ -42,7 +42,9 @@ app.get('/api/test', (req, res) => {
 
 // For any route, just send index.html so that Vue Router handles (fallback)
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+  //res.sendFile(path.join(__dirname, 'dist', 'index.html')) original (doesnt route properly)
+  res.sendFile(path.join(__dirname, '..','client','index.html')) //correct routing for dev server (NOT DIST)
+  //res.sendFile(path.join(__dirname, '..','client','dist','index.html')) if using npm build and having index.html in dist
 })
 
 // Start server
