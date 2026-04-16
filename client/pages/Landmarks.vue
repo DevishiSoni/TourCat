@@ -1,36 +1,47 @@
 <script setup>
+import LandmarkCard from '../components/LandmarkCard.vue'
+
+const landmarks = [
+  {
+    name: "CN Tower",
+    image: "/images/cnTower.jpg",
+    description: "Iconic tower in Toronto"
+  },
+  {
+    name: "Eiffel Tower",
+    image: "/images/eiffelTower.jpg",
+    description: "Famous landmark in Paris"
+  },
+  {
+    name: "Statue of Liberty",
+    image: "/images/statueOfLiberty.jpg",
+    description: "Symbol of freedom in New York"
+  }
+]
 </script>
 
 <template>
   <div class="landmarks-page">
     <h2>Landmarks</h2>
 
-    <!-- Controls section -->
+    <!-- Controls (placeholder for now) -->
     <div class="controls">
       <input type="text" placeholder="Search landmarks..." />
-      
       <select>
-        <option value="">All Countries</option>
+        <option>All Countries</option>
       </select>
-
       <select>
-        <option value="">All Types</option>
+        <option>All Types</option>
       </select>
     </div>
 
-    <!-- Cards grid -->
+    <!-- Cards -->
     <div class="grid">
-      <div class="card-placeholder">
-        Landmark Card placeholder
-      </div>
-
-      <div class="card-placeholder">
-        Landmark Card placeholder
-      </div>
-
-      <div class="card-placeholder">
-        Landmark Card placeholder
-      </div>
+      <LandmarkCard
+        v-for="(landmark, index) in landmarks"
+        :key="index"
+        :landmark="landmark"
+      />
     </div>
   </div>
 </template>
@@ -55,15 +66,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 15px;
   margin-top: 20px;
-}
-
-.card-placeholder {
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
 }
 </style>

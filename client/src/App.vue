@@ -1,25 +1,23 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import Navbar from '../components/Navbar.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
   <div id="layout">
-    <header>
-      <div class="wrapper">
-        <nav>
-          <RouterLink to="/">Home</RouterLink> |
-          <RouterLink to="/landmarks">Landmarks</RouterLink> |
-          <RouterLink to="/add">Add</RouterLink> |
-          <RouterLink to="/contact">Contact</RouterLink>
-        </nav>
-      </div>
-    </header>
+    <Navbar />
+    <RouterView />
   </div>
-
-  <RouterView />
 </template>
 
 <style>
+#layout {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #444444;
+}
+
 #layout {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
