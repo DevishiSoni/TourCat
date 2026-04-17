@@ -27,6 +27,7 @@ Matthew (Front End Vue)
     - Reusable and modular UI/components
     - Fetching data (Vue)
     - Rendering and mustache braces (Vue)
+    - Added animated front page
 
 Caelen (Front End Lead)
 - Contributed to making sure that the front end of the software was up and running (created the foundation)
