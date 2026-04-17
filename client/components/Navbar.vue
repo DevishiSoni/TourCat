@@ -35,7 +35,7 @@ import { RouterLink } from 'vue-router'
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
-  color: #444;
+  color: #6dcfbc;
 }
 
 .links a.router-link-exact-active {

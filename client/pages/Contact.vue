@@ -31,6 +31,9 @@ const body = "Hi TourCat team,%0D%0A%0D%0AI had a question about..."
 </template>
 
 <style scoped>
+h2 {
+  color: #6dcfbc;
+}
 .contact-page {
   text-align: center;
   padding: 40px;
@@ -44,12 +47,13 @@ const body = "Hi TourCat team,%0D%0A%0D%0AI had a question about..."
 
 .description {
   margin-bottom: 20px;
-  color: #666;
+  color: #6dcfbc;
 }
 
 .contact-info {
   margin-bottom: 30px;
   font-size: 16px;
+  color: #6dcfbc;
 }
 
 .email-btn {

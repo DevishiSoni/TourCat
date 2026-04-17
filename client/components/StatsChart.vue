@@ -33,6 +33,7 @@ function renderChart() {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .attr('width', '100%')
         .attr('height', height)
+        .attr('fill', 'rgba(29, 158, 117, 0.7)')  // colour 
 
     // x-scale
     const x = d3
@@ -71,12 +72,15 @@ function renderChart() {
         .attr('y', (d) => y(d.value) - 8)
         .attr('text-anchor', 'middle')
         .text((d) => d.value)
+        .style('fill', '#a8edd8')
 
     // x-axis
     svg
         .append('g')
         .attr('transform', `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x))
+        .call(g => g.selectAll('text').style('fill', '#6dcfbc'))
+        .call(g => g.selectAll('line, path').style('stroke', 'rgba(29,158,117,0.4)'))
         .selectAll('text')
         .style('text-anchor', 'middle')
 
@@ -90,6 +94,8 @@ function renderChart() {
             .tickValues(d3.range(0, maxValue + 1, 1))
             .tickFormat(d3.format('d'))
         )
+        .call(g => g.selectAll('text').style('fill', '#6dcfbc'))
+        .call(g => g.selectAll('line, path').style('stroke', 'rgba(29,158,117,0.4)'))
 
     // x title
     svg
@@ -98,6 +104,7 @@ function renderChart() {
         .attr('y', height - 20)
         .attr('text-anchor', 'middle')
         .text('Country')
+        .style('fill', '#6dcfbc') 
 
     // y title
     svg
@@ -107,6 +114,7 @@ function renderChart() {
         .attr('y', 20)
         .attr('text-anchor', 'middle')
         .text('Number of Landmarks')
+        .style('fill', '#6dcfbc') 
 }
 
 onMounted(renderChart)
@@ -126,11 +134,11 @@ watch(
 
 <style scoped>
 .chart-container {
-    width: 100%;
-    min-height: 420px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 1rem;
+  width: 100%;
+  min-height: 420px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(29, 158, 117, 0.3);
+  border-radius: 12px;
+  padding: 1rem;
 }
 </style>

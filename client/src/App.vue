@@ -29,12 +29,12 @@ import { RouterView } from 'vue-router'
 /* Navbar */
 nav {
   padding: 20px;
-  background-color: #9cc2fc6c;
+  color: #6dcfbc;
 }
 
 nav a {
   font-weight: bold;
-  color: #444444;
+  color: #6dcfbc;
   text-decoration: none;
   margin: 0 10px;
 }
@@ -49,5 +49,9 @@ h2 {
   font-size: 48px;
   color: #444444;
   margin-bottom: 20px;
+}
+html, body, #app {
+  height: 100%;
+  margin: 0;
 }
 </style>
