@@ -46,7 +46,7 @@ export const getLandmarkById = async (id) => {
     const json = JSON.parse(data)
     let landmarks = json.landmarks || []
     const landmarkId = parseInt(id)
-    return landmarks.find(l => l.id === landmarkId)
+    return landmarks.find(l => l.id == landmarkId)
 }
 
 // Create a new landmark
@@ -86,7 +86,7 @@ export const updateLandmark = async (id, updatedData) => {
     }
 
     // update
-    landmarks[index] = {...landmarks[index], ...updatedData}
+    landmarks[index] = { ...landmarks[index], ...updatedData, id: landmarkId }
 
     json.landmarks = landmarks
     await fs.promises.writeFile(dataPath, JSON.stringify(json, null, 2))
