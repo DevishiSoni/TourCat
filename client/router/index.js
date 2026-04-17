@@ -33,7 +33,12 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: Contact
-    }
+    },
+    {
+    path: '/edit/:id',
+    name: 'edit',
+    component: AddLandmark  
+  }
   ]
 })
 
