@@ -1,3 +1,4 @@
+// server/routes/landmarks.js
 // Traffic director
 //Deinfes API endpoints
 // Connect URLs to controller functions
@@ -7,7 +8,13 @@
 
 // Imports
 import express from 'express'
+import multer from 'multer'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import * as landmarkServices from '../services/landmarkServices.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Initialize Express router
 // Ask serviceLandmarks.js and send it back
@@ -42,8 +49,40 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+
+// Save uploaded images to client/public/images/
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '../../client/public/images/'))  //file path
+  },
+  filename: (req, file, cb) => {
+    const name = file.originalname.replace(/\s+/g, '')
+    cb(null, `${Date.now()}-${name}`)
+  }
+})
+
+const upload = multer({ storage })
+
+// Replace your existing POST route with this:
+router.post('/', upload.single('image'), async (req, res) => {
+  try {
+    const newLandmark = {
+      ...req.body,
+      yearBuilt: req.body.yearBuilt ? parseInt(req.body.yearBuilt) : null,
+      latitude: parseFloat(req.body.latitude),
+      longitude: parseFloat(req.body.longitude),
+      favourite: false,
+      image: req.file ? `/images/${req.file.filename}` : ''
+    }
+    const created = await landmarkServices.createLandmark(newLandmark)
+    res.status(201).json(created)
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create landmark' })
+  }
+})
 // Create a new landmark
 // Ask serviceLandmarks.js and send it back
+/*
 router.post('/', async (req, res) => {
     try {
         const newLandmark = req.body // get info from user
@@ -55,7 +94,7 @@ router.post('/', async (req, res) => {
         res.status(500).json({ error: 'Failed to create landmark' }) // error
     }
 })
-
+*/
 // PUT (update)
 // Update an existing landmark, find by ID
 // Ask serviceLandmarks.js and send it back

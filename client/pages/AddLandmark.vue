@@ -15,21 +15,33 @@ const form = ref({
   description: '',
   latitude: '',
   longitude: '',
-  image: ''
 })
 
+const imageFile = ref(null)
+const imagePreview = ref(null)
 const error = ref(null)
 const success = ref(false)
+
+const handleImageChange = (e) => {
+  const file = e.target.files[0]
+  if (!file) return
+  imageFile.value = file
+  imagePreview.value = URL.createObjectURL(file)
+}
 
 const submitForm = async () => {
   error.value = null
   try {
-    await axios.post('/api/landmarks', {
-      ...form.value,
-      yearBuilt: form.value.yearBuilt ? parseInt(form.value.yearBuilt) : null,
-      latitude: parseFloat(form.value.latitude),
-      longitude: parseFloat(form.value.longitude),
-      favourite: false
+    const formData = new FormData()
+    Object.entries(form.value).forEach(([key, val]) => formData.append(key, val))
+    formData.set('yearBuilt', form.value.yearBuilt ? parseInt(form.value.yearBuilt) : '')
+    formData.set('latitude', parseFloat(form.value.latitude))
+    formData.set('longitude', parseFloat(form.value.longitude))
+    formData.append('favourite', false)
+    if (imageFile.value) formData.append('image', imageFile.value)
+
+    await axios.post('/api/landmarks', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
     })
     success.value = true
     setTimeout(() => router.push('/landmarks'), 1500)
@@ -86,20 +98,20 @@ const submitForm = async () => {
         </div>
       </div>
 
-      <div class="row">
-        <div class="field">
-          <label>Year Built</label>
-          <input v-model="form.yearBuilt" type="number" placeholder="1976" />
-        </div>
-        <div class="field">
-          <label>Image Path</label>
-          <input v-model="form.image" type="text" placeholder="/images/cnTower.jpg" />
-        </div>
+      <div class="field">
+        <label>Year Built</label>
+        <input v-model="form.yearBuilt" type="number" placeholder="1976" />
       </div>
 
       <div class="field">
         <label>Description</label>
         <textarea v-model="form.description" rows="3" placeholder="A brief description of the landmark..." />
+      </div>
+
+      <div class="field">
+        <label>Image</label>
+        <input type="file" accept="image/*" @change="handleImageChange" />
+        <img v-if="imagePreview" :src="imagePreview" class="preview" />
       </div>
 
       <div class="actions">
@@ -156,8 +168,22 @@ input:focus, select:focus, textarea:focus {
   border-color: #007bff;
 }
 
+input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+}
+
 textarea {
   resize: vertical;
+}
+
+.preview {
+  margin-top: 10px;
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 .actions {
@@ -203,7 +229,6 @@ textarea {
   color: #2e7d32;
   padding: 12px;
   border-radius: 8px;
-  margin-bottom: 8px;
 }
 
 .error {
@@ -211,6 +236,5 @@ textarea {
   color: #c62828;
   padding: 12px;
   border-radius: 8px;
-  margin-bottom: 8px;
 }
 </style>

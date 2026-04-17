@@ -142,6 +142,19 @@
       "longitude": -67.7834,
       "image": "/images/CanadaMap.jpg",
       "favourite": false
+    },
+    {
+      "id": 12,
+      "name": "test 2",
+      "country": "Canada",
+      "city": "ottawa",
+      "type": "Historical",
+      "yearBuilt": null,
+      "description": "tesettt",
+      "latitude": null,
+      "longitude": null,
+      "favourite": false,
+      "image": "/images/1776441987973-parliament.jpg"
     }
   ]
 }
