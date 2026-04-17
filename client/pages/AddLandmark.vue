@@ -72,9 +72,9 @@ const submitForm = async () => {
 
 <template>
   <div class="add-page">
-    <h2>Add Landmark</h2>
+    <h2>{{ isEdit ? 'Edit Landmark' : 'Add Landmark' }}</h2>
 
-    <div v-if="success" class="success">Landmark added! Redirecting...</div>
+    <div v-if="success" class="success">{{ isEdit ? 'Landmark updated!' : 'Landmark added!' }} Redirecting...</div>
     <div v-if="error" class="error">{{ error }}</div>
 
     <div class="form">
@@ -135,7 +135,7 @@ const submitForm = async () => {
 
       <div class="actions">
         <button class="cancel-btn" @click="router.push('/landmarks')">Cancel</button>
-        <button class="submit-btn" @click="submitForm">Add Landmark</button>
+        <button class="submit-btn" @click="submitForm">{{ isEdit ? 'Update Landmark' : 'Add Landmark' }}</button>
       </div>
     </div>
   </div>
