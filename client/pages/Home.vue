@@ -11,6 +11,10 @@ const error = ref('')
 
 const totalLandmarks = computed(() => landmarks.value.length)
 
+const favouriteCount = computed(() =>
+  landmarks.value.filter((landmark) => landmark.favourite).length
+)
+
 const countryCount = computed(() =>
   new Set(landmarks.value.map((landmark) => landmark.country)).size
 )
@@ -53,6 +57,7 @@ onMounted(async () => {
     <div class="hero">
       <h1>Welcome to TourCat</h1>
       <p class="subtitle">Discover Your Ontario!</p>
+      <p class="subtitle">Your Favourites: {{ favouriteCount }}</p>
       <RouterLink to="/landmarks" class="cta-btn">Explore Landmarks</RouterLink>
     </div>
 
