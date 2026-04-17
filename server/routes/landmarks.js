@@ -85,21 +85,22 @@ router.put('/:id', upload.single('image'), async (req, res) => {
         res.status(500).json({ error: 'Failed to update landmark' })
     }
 })
-// Create a new landmark
-// Ask serviceLandmarks.js and send it back
-/*
-router.post('/', async (req, res) => {
-    try {
-        const newLandmark = req.body // get info from user
-        const created = await landmarkServices.createLandmark(newLandmark) // send to landmarksServices.js
-
-        res.status(201).json(created) // succesful code
+router.post('/', upload.single('image'), async (req, res) => {
+  try {
+    const newLandmark = {
+      ...req.body,
+      yearBuilt: req.body.yearBuilt ? parseInt(req.body.yearBuilt) : null,
+      latitude: parseFloat(req.body.latitude),
+      longitude: parseFloat(req.body.longitude),
+      favourite: false,
+      image: req.file ? `/images/${req.file.filename}` : ''
     }
-    catch (err) {
-        res.status(500).json({ error: 'Failed to create landmark' }) // error
-    }
+    const created = await landmarkServices.createLandmark(newLandmark)
+    res.status(201).json(created)
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create landmark' })
+  }
 })
-*/
 // PUT (update)
 // Update an existing landmark, find by ID
 // Ask serviceLandmarks.js and send it back
