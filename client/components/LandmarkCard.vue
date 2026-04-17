@@ -81,7 +81,16 @@ const deleteLandmark = () => {
   padding: 15px;
   position: relative;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;  
+}
+
+.clickable-card {
+  cursor: pointer;
+}
+
+.card.selected-card {
+  background: whitesmoke;
+  box-shadow: 0 0 0 2px lightgrey, 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* header */

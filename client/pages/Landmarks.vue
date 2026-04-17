@@ -1,10 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import LandmarkCard from '../components/LandmarkCard.vue'
 import MapPanel from '../components/MapPanel.vue'
+import $ from 'jquery'
 
 const landmarks = ref([])
 const selectedLandmark = ref(null)
+const gridRef = ref(null)
 
 // 👇 ADD FUNCTIONS HERE
 const goToDetails = (id) => {
@@ -46,6 +48,21 @@ const toggleFavourite = async (id) => {
   }
 }
 
+// click handler for jQuery
+onMounted(() => {
+  if (!gridRef.value) return
+
+  $(gridRef.value).on('click.landmarkSelection', '.clickable-card', function () {
+    $(gridRef.value).find('.clickable-card').removeClass('selected-card')
+    $(this).addClass('selected-card')
+  })
+})
+
+onBeforeUnmount(() => {
+  if (!gridRef.value) return
+  $(gridRef.value).off('.landmarkSelection')
+})
+
 // fetch data
 onMounted(async () => {
   try {
@@ -86,7 +103,7 @@ onMounted(async () => {
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid">
+    <div ref="gridRef" class="grid">
       <LandmarkCard
         v-for="landmark in landmarks"
         :key="landmark.id"
