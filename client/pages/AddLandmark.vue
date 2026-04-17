@@ -74,7 +74,7 @@ const submitForm = async () => {
   <div class="add-page">
     <h2>{{ isEdit ? 'Edit Landmark' : 'Add Landmark' }}</h2>
 
-    <div v-if="success" class="success">{{ isEdit ? 'Landmark updated!' : 'Landmark added!' }} Redirecting...</div>
+    <div v-if="success" class="success">{{ isEdit ? 'Landmark updated!' : 'Landmark added!' }} Redirecting...</div> <!-- Show success message on successful submission -->
     <div v-if="error" class="error">{{ error }}</div>
 
     <div class="form">
@@ -135,7 +135,7 @@ const submitForm = async () => {
 
       <div class="actions">
         <button class="cancel-btn" @click="router.push('/landmarks')">Cancel</button>
-        <button class="submit-btn" @click="submitForm">{{ isEdit ? 'Update Landmark' : 'Add Landmark' }}</button>
+        <button class="submit-btn" @click="submitForm">{{ isEdit ? 'Update Landmark' : 'Add Landmark' }}</button> <!-- Change button text based on mode -->
       </div>
     </div>
   </div>
@@ -170,7 +170,7 @@ const submitForm = async () => {
 label {
   font-size: 14px;
   font-weight: bold;
-  color: #555;
+  color: #6dcfbc;
 }
 
 input, select, textarea {
