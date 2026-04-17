@@ -1,0 +1,68 @@
+Below is a list of the contributions that each of the group members have made to this project. 
+It includes which course topics each member covered as well as their particular contributions to the webpage.
+
+Eve (Backend Lead)
+- Implemented backend and ensured it was up an running to base the front end off of
+- Worked on all the backend of the different functionalities of the software (ex. Searching, Filtering, Favouriting, Editing, Deleting, and Adding a Landmark)
+- Set up API endpoints, routes, router and data support for communication between the front end and backend
+- Worked on Documentation for the project (READMe)
+- Ensured code security for backend (error handline, data parsing, no file system exposure, use of cors for access protection, controlled routes)
+- Covered the following course topics:
+    - Express.js and Node.js
+    - Rest API and endpoints
+    - Middleware
+    - Dynamic routes
+    - Router
+    - JavaScript
+    - Ajax/Web services (API)
+    - Security and modular architecture
+
+Matthew (Front End Vue)
+- Contributed to making sure that the front end of the software was up and running (created the foundation)
+- Worked on integrating the backend functionalities (as indicated above) of the software to the front end (connecting the two)
+- Implemented the Vue foundation
+- Covered the following course topics: 
+    - Vue (landmark cards, views, details)
+    - Vue (Search bar, filter, add, update, delete, user input)
+    - Reusable and modular UI/components
+    - Fetching data (Vue)
+    - Rendering and mustache braces (Vue)
+
+Caelen (Front End Lead)
+- Contributed to making sure that the front end of the software was up and running (created the foundation)
+- Made sure that the front end was able to be built and get the UI started
+- Peer reviewed backend for clean integration.
+- Implemented front end aspect of data retrieval.
+- Covered the following course topics: 
+    - Fetching data (Ajax/Axios/lifecycle hooks)
+    - Connect Vue (API)
+    - State
+    - Frameworks (Vue)
+    - JavaScript
+    - Dynamic DOM, jQuery
+    - Reusable Vue components
+
+Trevor (UI - Front End & Backend Integration)
+ - Contributed to researching and taking a look at what new features we could add to our software that may have not been covered in class to enhance our project (interactive map)
+ - Contributed to integrating front end and back end functionality (map, home page chart, favourite count)
+ - Covered the following course topics: 
+    - Charts (D3, SVG, dynamic DOM)
+    - New technology (interaction map using Leaflet.js)
+    - Favourites system (computed properties)
+    - JavaScript
+    - Lifecycle hooks
+    - Dynamic DOM, jQuery
+
+Devishi (UI - Front End & Backend Integration)
+- Main focus on UI and styling of the software making sure the website looked polished
+- Also contributed to front end and back end integration (mainly api data retrieval and display integration)
+- Worked on documentation and file architecture
+- Additional Features: Logo, contact us (sending an email from gmail)
+- Covered the following course topics:
+    - Layout CSS/CSS frameworks/Bulma/HTML (Navbar, sidebar, pictures/logo)
+    - JPG
+    - Vue (home page, landmarks page, add landmark page, contact us page)
+    - Vue (landmark cards, views, details)
+    - Vue (Search bar, filter, add, update, delete, user input)
+    - Single page application methods
+    - Rendering and mustache braces (Vue)
