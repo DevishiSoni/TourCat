@@ -1,12 +1,17 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import LandmarkCard from '../components/LandmarkCard.vue'
+import MapPanel from '../components/MapPanel.vue'
 
 const landmarks = ref([])
+const selectedLandmark = ref(null)
 
 // 👇 ADD FUNCTIONS HERE
 const goToDetails = (id) => {
-  console.log("View:", id)
+  const found = landmarks.value.find((landmark) => landmark.id === id)
+  if (found) {
+    selectedLandmark.value = found
+  }
 }
 
 const editLandmark = (id) => {
@@ -26,6 +31,10 @@ onMounted(async () => {
   try {
     const res = await fetch('http://localhost:3000/api/landmarks')
     landmarks.value = await res.json()
+
+    if (landmarks.value.length > 0) {
+      selectedLandmark.value = landmarks.value[0]
+    }
   } catch (err) {
     console.error(err)
   }
@@ -46,6 +55,14 @@ onMounted(async () => {
       <select>
         <option value="">All Types</option>
       </select>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrapper">
+      <MapPanel
+        :landmarks="landmarks"
+        :selected-landmark="selectedLandmark"
+      />
     </div>
 
     <!-- Cards Grid -->
@@ -81,6 +98,10 @@ onMounted(async () => {
 .controls select {
   padding: 8px;
   font-size: 14px;
+}
+
+.map-wrapper {
+  margin-bottom: 24px;
 }
 
 /* Grid layout */
