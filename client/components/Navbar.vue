@@ -1,11 +1,13 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+
+
 </script>
 
 <template>
   <nav class="navbar">
     <div class="logo">TourCat</div>
-
+    
     <div class="links">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/landmarks">Landmarks</RouterLink>
