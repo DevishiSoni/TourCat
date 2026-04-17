@@ -6,7 +6,7 @@ const body = "Hi TourCat team,%0D%0A%0D%0AI had a question about..."
 
 <template>
   <div class="contact-page">
-    <img src="/images/tourcat.png" alt="TourCat Logo" class="contact-logo" />
+    <img src="/images/tourcat-removebg.png" alt="TourCat Logo" class="contact-logo" />
     <h2>Contact Us</h2>
 
     <p class="description">
@@ -37,7 +37,7 @@ const body = "Hi TourCat team,%0D%0A%0D%0AI had a question about..."
 }
 
 .contact-logo{
-  height: 90px;
+  height: 200px;
   width: auto;
   margin-bottom: 20px;
 }
