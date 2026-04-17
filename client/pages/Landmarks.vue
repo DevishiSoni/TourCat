@@ -22,8 +22,28 @@ const deleteLandmark = (id) => {
   console.log("Delete:", id)
 }
 
-const toggleFavourite = (id) => {
-  console.log("Favourite toggled:", id)
+const toggleFavourite = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/landmarks/${id}/favourite`, {
+      method: 'PATCH'
+    })
+
+    if (!res.ok) {
+      throw new Error('Failed to toggle favourite')
+    }
+
+    const updatedLandmark = await res.json()
+
+    landmarks.value = landmarks.value.map((landmark) =>
+      landmark.id === updatedLandmark.id ? updatedLandmark : landmark
+    )
+
+    if (selectedLandmark.value?.id === updatedLandmark.id) {
+      selectedLandmark.value = updatedLandmark
+    }
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 // fetch data

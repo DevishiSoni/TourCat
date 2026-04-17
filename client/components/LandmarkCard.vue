@@ -7,12 +7,8 @@ const props = defineProps({
 
 const emit = defineEmits(['select', 'view', 'edit', 'delete', 'favourite'])
 
-// local favourite state
-const isFavourite = ref(props.landmark.favourite)
-
 // toggle heart
 const toggleFavourite = () => {
-  isFavourite.value = !isFavourite.value
   emit('favourite', props.landmark.id)
 }
 
@@ -50,7 +46,7 @@ const deleteLandmark = () => {
 
     <!-- Heart Icon -->
     <button class="heart-btn" @click.stop="toggleFavourite">
-        <span :class="{ fav: isFavourite }">♥</span>
+        <span :class="{ fav: landmark.favourite }">♥</span>
     </button>
 
     <!-- Top bar -->
