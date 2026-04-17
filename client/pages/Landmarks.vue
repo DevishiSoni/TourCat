@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import LandmarkCard from '../components/LandmarkCard.vue'
 import MapPanel from '../components/MapPanel.vue'
 import { updateLandmark, deleteLandmark as deleteLandmarkAPI } from '../src/services/clientServices.js'
@@ -13,6 +13,11 @@ const search = ref('')
 const selectedCountry = ref('')
 const selectedType = ref('')
 const gridRef = ref(null)
+
+const countries = computed(() => { //get the list of unique countries for the dropdown filter dynamically populated based on the landmarks data
+  const all = landmarks.value.map(l => l.country).filter(Boolean)
+  return [...new Set(all)].sort()
+})
 
 const goToDetails = (id) => {
   router.push(`/landmarks/${id}`)
@@ -131,19 +136,12 @@ onMounted(fetchLandmarks)
         @input="fetchLandmarks"
         placeholder="Search by city..."
       />
-      <select v-model="selectedCountry" @change="fetchLandmarks">
-        <option value="">All Countries</option>
-        <option value="Canada">Canada</option>
-        <option value="USA">USA</option>
-        <option value="Brazil">Brazil</option>
-        <option value="India">India</option>
-        <option value="China">China</option>
-        <option value="Japan">Japan</option>
-        <option value="United Kingdom">United Kingdom</option>
-        <option value="France">France</option>
-        <option value="Italy">Italy</option>
-        <option value="Australia">Australia</option>
-      </select>
+      <select v-model="selectedCountry" @change="fetchLandmarks"> <!-- Country filter dropdown dynamically populated -->
+  <option value="">All Countries</option>
+  <option v-for="country in countries" :key="country" :value="country">
+    {{ country }}
+  </option>
+</select>
 
       <select v-model="selectedType" @change="fetchLandmarks">
         <option value="">All Types</option>

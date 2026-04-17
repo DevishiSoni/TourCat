@@ -132,7 +132,7 @@
     },
     {
       "id": 11,
-      "name": "changejjj",
+      "name": "change",
       "country": "Candai",
       "city": "Ajax",
       "type": "Historical",
@@ -142,6 +142,19 @@
       "longitude": -67.7834,
       "image": "/images/CanadaMap.jpg",
       "favourite": "true"
+    },
+    {
+      "id": 12,
+      "name": "sdfsdf",
+      "country": "Zimbabwe",
+      "city": "",
+      "type": "",
+      "yearBuilt": null,
+      "description": "",
+      "latitude": null,
+      "longitude": null,
+      "favourite": false,
+      "image": ""
     }
   ]
 }
