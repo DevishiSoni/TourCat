@@ -44,17 +44,19 @@ const deleteLandmark = () => {
 <template>
   <div class="card clickable-card" @click="selectLandmark">
 
-    <!-- Heart Icon -->
-    <button class="heart-btn" @click.stop="toggleFavourite">
-        <span :class="{ fav: landmark.favourite }">♥</span>
-    </button>
-
     <!-- Top bar -->
     <div class="card-header">
-      <h3>{{landmark.name}}</h3>
+      <h3>{{ landmark.name }}</h3>
 
-      <!-- 3 dots -->
-      <button class="menu-btn" @click.stop="toggleMenu">⋮</button>
+      <div class="card-actions">
+        <!-- Heart Icon -->
+        <button class="heart-btn" @click.stop="toggleFavourite">
+          <span :class="{ fav: landmark.favourite }">♥</span>
+        </button>
+
+        <!-- 3 dots -->
+        <button class="menu-btn" @click.stop="toggleMenu">⋮</button>
+      </div>
 
       <!-- Dropdown -->
       <div v-if="showMenu" class="dropdown" @click.stop>
@@ -103,6 +105,14 @@ const deleteLandmark = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 /* 3 dots button */

@@ -101,7 +101,7 @@
       "description": "Multi-venue performing arts centre in Sydney Harbour.",
       "latitude": -33.8568,
       "longitude": 151.2153,
-      "favourite": "false",
+      "favourite": true,
       "image": "/images/operaHouse.jpg"
     },
     {
@@ -133,7 +133,7 @@
     {
       "id": 11,
       "name": "change",
-      "country": "Candai",
+      "country": "Canada",
       "city": "Ajax",
       "type": "Historical",
       "yearBuilt": null,
