@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f8fc;
+    color: #444;
+  }
+  
+  /* Global page container spacing */
+  #layout {
+    min-height: 100vh;
+  }
+  
+  /* Headings */
+  h2 {
+    font-size: 36px;
+    margin: 20px 0;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Inputs (search bar, forms, etc.) */
+  input, select, button {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    outline: none;
+  }
+  
+  input:focus, select:focus {
+    border-color: #007bff;
+  }
+  
+  /* Buttons (for later pages like Add Landmark) */
+  button {
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Smooth transitions globally */
+  * {
+    transition: all 0.2s ease;
+  }
+
+  .card {
+    position: relative;
+  }
+  
+  .heart-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px; 
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .heart-btn span {
+    color: #ffffff; 
+
+    text-shadow: 
+      -1px -1px 0 black,
+       1px -1px 0 black,
+      -1px  1px 0 black,
+       1px  1px 0 black;
+  
+    transition: 0.2s;
+  }
+  
+  
+  .heart-btn span.fav {
+    color: red;
+  }
