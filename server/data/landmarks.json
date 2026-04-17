@@ -129,6 +129,19 @@
       "longitude": 138.7274,
       "favourite": false,
       "image": "/images/mountFuji.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Tester",
+      "country": "Candai",
+      "city": "Ajax",
+      "type": "Historical",
+      "yearBuilt": null,
+      "description": "brief desctiption",
+      "latitude": 43.57547,
+      "longitude": -67.7834,
+      "image": "/images/CanadaMap.jpg",
+      "favourite": false
     }
   ]
 }
