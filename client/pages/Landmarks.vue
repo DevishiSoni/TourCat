@@ -71,6 +71,7 @@ onMounted(async () => {
         v-for="landmark in landmarks"
         :key="landmark.id"
         :landmark="landmark"
+        @select="goToDetails"
         @view="goToDetails"
         @edit="editLandmark"
         @delete="deleteLandmark"
