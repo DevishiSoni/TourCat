@@ -19,6 +19,13 @@ const countries = computed(() => { //get the list of unique countries for the dr
   return [...new Set(all)].sort()
 })
 
+const selectLandmark = (id) => {
+  const found = landmarks.value.find((landmark) => landmark.id === id)
+  if (found) {
+    selectedLandmark.value = found
+  }
+}
+
 const goToDetails = (id) => {
   router.push(`/landmarks/${id}`)
 }
@@ -166,7 +173,7 @@ onMounted(fetchLandmarks)
         v-for="landmark in landmarks"
         :key="landmark.id"
         :landmark="landmark"
-        @select="goToDetails"
+        @select="selectLandmark"
         @view="goToDetails"
         @edit="editLandmark"
         @delete="deleteLandmark"
