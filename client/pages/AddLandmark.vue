@@ -1,8 +1,13 @@
 <!-- client/pages/AddLandmark.vue -->
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import axios from 'axios'
+
+import { ref, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'  
+
+const route = useRoute()
+const editId = route.params.id  
+const isEdit = !!editId
 
 const router = useRouter()
 
@@ -29,6 +34,13 @@ const handleImageChange = (e) => {
   imagePreview.value = URL.createObjectURL(file)
 }
 
+onMounted(async () => {
+  if (isEdit) {
+    const res = await axios.get(`/api/landmarks/${editId}`)
+    Object.assign(form.value, res.data)
+    if (res.data.image) imagePreview.value = res.data.image
+  }
+})
 const submitForm = async () => {
   error.value = null
   try {
@@ -37,16 +49,23 @@ const submitForm = async () => {
     formData.set('yearBuilt', form.value.yearBuilt ? parseInt(form.value.yearBuilt) : '')
     formData.set('latitude', parseFloat(form.value.latitude))
     formData.set('longitude', parseFloat(form.value.longitude))
-    formData.append('favourite', false)
     if (imageFile.value) formData.append('image', imageFile.value)
 
-    await axios.post('/api/landmarks', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    })
+    if (isEdit) {
+      await axios.put(`/api/landmarks/${editId}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      })
+    } else {
+      formData.append('favourite', false)
+      await axios.post('/api/landmarks', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      })
+    }
+
     success.value = true
     setTimeout(() => router.push('/landmarks'), 1500)
   } catch (err) {
-    error.value = 'Failed to add landmark. Please try again.'
+    error.value = `Failed to ${isEdit ? 'update' : 'add'} landmark. Please try again.`
   }
 }
 </script>

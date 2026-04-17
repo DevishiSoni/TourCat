@@ -114,7 +114,7 @@
       "description": "Art Deco statue of Jesus Christ overlooking Rio.",
       "latitude": -22.9519,
       "longitude": -43.2105,
-      "favourite": false,
+      "favourite": true,
       "image": "/images/theRedeemerStatue.jpg"
     },
     {
@@ -131,8 +131,8 @@
       "image": "/images/mountFuji.jpg"
     },
     {
-      "id": 11,
-      "name": "Tester",
+      "id": "11",
+      "name": "change",
       "country": "Candai",
       "city": "Ajax",
       "type": "Historical",
@@ -141,20 +141,7 @@
       "latitude": 43.57547,
       "longitude": -67.7834,
       "image": "/images/CanadaMap.jpg",
-      "favourite": false
-    },
-    {
-      "id": 12,
-      "name": "test 2",
-      "country": "Canada",
-      "city": "ottawa",
-      "type": "Historical",
-      "yearBuilt": null,
-      "description": "tesettt",
-      "latitude": null,
-      "longitude": null,
-      "favourite": false,
-      "image": "/images/1776441987973-parliament.jpg"
+      "favourite": "false"
     }
   ]
 }

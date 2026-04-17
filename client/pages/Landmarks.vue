@@ -2,6 +2,10 @@
 import { ref, onMounted } from 'vue'
 import LandmarkCard from '../components/LandmarkCard.vue'
 import MapPanel from '../components/MapPanel.vue'
+import { updateLandmark, deleteLandmark as deleteLandmarkAPI } from '../src/services/clientServices.js'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const landmarks = ref([])
 const selectedLandmark = ref(null)
@@ -15,11 +19,19 @@ const goToDetails = (id) => {
 }
 
 const editLandmark = (id) => {
-  console.log("Edit:", id)
+  router.push(`/edit/${id}`)
 }
 
-const deleteLandmark = (id) => {
-  console.log("Delete:", id)
+const deleteLandmark = async (id) => {
+  try {
+    await deleteLandmarkAPI(id)
+    landmarks.value = landmarks.value.filter(l => l.id !== id)
+    if (selectedLandmark.value?.id === id) {
+      selectedLandmark.value = landmarks.value[0] ?? null
+    }
+  } catch (err) {
+    console.error('Delete failed:', err)
+  }
 }
 
 const toggleFavourite = async (id) => {
