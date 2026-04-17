@@ -50,6 +50,7 @@ function popupHtml(landmark) {
   `
 }
 
+// moves the map
 function focusLandmark(landmark) {
   if (!map || !hasCoords(landmark)) return
 
@@ -63,6 +64,7 @@ function focusLandmark(landmark) {
   }
 }
 
+// map markers
 function renderMarkers() {
   if (!map || !markersLayer) return
 
