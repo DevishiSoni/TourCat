@@ -56,7 +56,7 @@ onMounted(async () => {
   <div class="home">
     <div class="hero">
       <h1>Welcome to TourCat</h1>
-      <p class="subtitle">Discover Your Ontario!</p>
+      <p class="subtitle">Discover The World!</p>
       <p class="subtitle">Your Favourites: {{ favouriteCount }}</p>
       <RouterLink to="/landmarks" class="cta-btn">Explore Landmarks</RouterLink>
     </div>

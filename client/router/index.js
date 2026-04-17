@@ -38,7 +38,12 @@ const router = createRouter({
     path: '/edit/:id',
     name: 'edit',
     component: AddLandmark  
-  }
+  },
+  {
+      path: '/landmarks/:id',
+      name: 'Details',
+      component: () => import('../pages/Details.vue')
+    }
   ]
 })
 

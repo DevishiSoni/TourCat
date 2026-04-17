@@ -6,16 +6,14 @@ import { updateLandmark, deleteLandmark as deleteLandmarkAPI } from '../src/serv
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
 const landmarks = ref([])
 const selectedLandmark = ref(null)
+const search = ref('')
+const selectedCountry = ref('')
+const selectedType = ref('')
 
-// 👇 ADD FUNCTIONS HERE
 const goToDetails = (id) => {
-  const found = landmarks.value.find((landmark) => landmark.id === id)
-  if (found) {
-    selectedLandmark.value = found
-  }
+  router.push(`/landmarks/${id}`)
 }
 
 const editLandmark = (id) => {
@@ -71,6 +69,37 @@ onMounted(async () => {
     console.error(err)
   }
 })
+
+const fetchLandmarks = async () => {
+  try {
+    let url = 'http://localhost:3000/api/landmarks?'
+
+    // Search by city
+    if (search.value) {
+      url += `city=${search.value}`
+    }
+    
+    // Dropdown country filter
+    if (selectedCountry.value) {
+      url += `country=${selectedCountry.value}&`
+    }
+
+    // Type filter
+    if (selectedType.value) {
+      url += `type=${selectedType.value}&`
+    }
+
+    const res = await fetch(url)
+    const data = await res.json()
+
+    landmarks.value = data
+  } catch (err) {
+    console.error("FETCH ERROR:", err)
+  }
+}
+
+onMounted(fetchLandmarks)
+
 </script>
 
 <template>
@@ -80,12 +109,31 @@ onMounted(async () => {
 
     <!-- Controls (not functional yet, just UI placeholder) -->
     <div class="controls">
-      <input type="text" placeholder="Search landmarks..." />
-      <select>
+      <input
+        v-model="search"
+        @input="fetchLandmarks"
+        placeholder="Search by city..."
+      />
+      <select v-model="selectedCountry" @change="fetchLandmarks">
         <option value="">All Countries</option>
+        <option value="Canada">Canada</option>
+        <option value="USA">USA</option>
+        <option value="Brazil">Brazil</option>
+        <option value="India">India</option>
+        <option value="China">China</option>
+        <option value="Japan">Japan</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="France">France</option>
+        <option value="Italy">Italy</option>
+        <option value="Australia">Australia</option>
       </select>
-      <select>
+
+      <select v-model="selectedType" @change="fetchLandmarks">
         <option value="">All Types</option>
+        <option value="Historical">Historical</option>
+        <option value="Modern">Modern</option>
+        <option value="Natural">Natural</option>
+        <option value="Religious">Religious</option>
       </select>
     </div>
 
