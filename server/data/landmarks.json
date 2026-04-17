@@ -39,18 +39,19 @@
       "favourite": false,
       "image": "/images/statueOfLiberty.jpg"
     },
+
     {
       "id": 4,
       "name": "Great Wall of China",
       "country": "China",
       "city": "Beijing",
       "type": "Historical",
-      "yearBuilt": 700,
-      "description": "Ancient series of walls and fortifications across northern China.",
+      "yearBuilt": -700,
+      "description": "Ancient defensive wall stretching across northern China.",
       "latitude": 40.4319,
       "longitude": 116.5704,
       "favourite": true,
-      "image": "/images/china.jpg"
+      "image": "/images/greatWall.jpg"
     },
     {
       "id": 5,
@@ -115,7 +116,7 @@
       "latitude": -22.9519,
       "longitude": -43.2105,
       "favourite": true,
-      "image": "/images/theRedeemerStatue.jpg"
+      "image": "/images/redeemer.jpg"
     },
     {
       "id": 10,
@@ -124,37 +125,142 @@
       "city": "Honshu",
       "type": "Natural",
       "yearBuilt": null,
-      "description": "Japan's highest mountain and an active stratovolcano.",
+      "description": "Japan's highest mountain and an active volcano.",
       "latitude": 35.3606,
       "longitude": 138.7274,
       "favourite": false,
       "image": "/images/mountFuji.jpg"
     },
+
     {
       "id": 11,
-      "name": "change",
-      "country": "Canada",
-      "city": "Ajax",
+      "name": "Machu Picchu",
+      "country": "Peru",
+      "city": "Cusco Region",
       "type": "Historical",
-      "yearBuilt": null,
-      "description": "brief desctiption",
-      "latitude": 43.57547,
-      "longitude": -67.7834,
-      "image": "/images/CanadaMap.jpg",
-      "favourite": "true"
+      "yearBuilt": 1450,
+      "description": "Incan citadel set high in the Andes Mountains.",
+      "latitude": -13.1631,
+      "longitude": -72.5450,
+      "favourite": true,
+      "image": "/images/machuPicchu.jpg"
     },
     {
       "id": 12,
-      "name": "sdfsdf",
-      "country": "Zimbabwe",
-      "city": "",
-      "type": "",
-      "yearBuilt": null,
-      "description": "",
-      "latitude": null,
-      "longitude": null,
+      "name": "Pyramids of Giza",
+      "country": "Egypt",
+      "city": "Giza",
+      "type": "Historical",
+      "yearBuilt": -2560,
+      "description": "Ancient pyramids built as tombs for pharaohs.",
+      "latitude": 29.9792,
+      "longitude": 31.1342,
+      "favourite": true,
+      "image": "/images/giza.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Burj Khalifa",
+      "country": "UAE",
+      "city": "Dubai",
+      "type": "Modern",
+      "yearBuilt": 2010,
+      "description": "World's tallest building.",
+      "latitude": 25.1972,
+      "longitude": 55.2744,
       "favourite": false,
-      "image": ""
+      "image": "/images/burjKhalifa.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Niagara Falls",
+      "country": "Canada",
+      "city": "Niagara",
+      "type": "Natural",
+      "yearBuilt": null,
+      "description": "Famous group of waterfalls on the border of Canada and the USA.",
+      "latitude": 43.0962,
+      "longitude": -79.0377,
+      "favourite": true,
+      "image": "/images/niagara.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Stonehenge",
+      "country": "United Kingdom",
+      "city": "Wiltshire",
+      "type": "Historical",
+      "yearBuilt": -2500,
+      "description": "Prehistoric stone circle monument.",
+      "latitude": 51.1789,
+      "longitude": -1.8262,
+      "favourite": false,
+      "image": "/images/stonehenge.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Petra",
+      "country": "Jordan",
+      "city": "Ma'an",
+      "type": "Historical",
+      "yearBuilt": -300,
+      "description": "Ancient city carved into red sandstone cliffs.",
+      "latitude": 30.3285,
+      "longitude": 35.4444,
+      "favourite": true,
+      "image": "/images/petra.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Angkor Wat",
+      "country": "Cambodia",
+      "city": "Siem Reap",
+      "type": "Religious",
+      "yearBuilt": 1150,
+      "description": "Largest religious monument in the world.",
+      "latitude": 13.4125,
+      "longitude": 103.8670,
+      "favourite": false,
+      "image": "/images/angkor.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Golden Gate Bridge",
+      "country": "USA",
+      "city": "San Francisco",
+      "type": "Modern",
+      "yearBuilt": 1937,
+      "description": "Suspension bridge spanning the Golden Gate strait.",
+      "latitude": 37.8199,
+      "longitude": -122.4783,
+      "favourite": false,
+      "image": "/images/goldenGate.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Sagrada Familia",
+      "country": "Spain",
+      "city": "Barcelona",
+      "type": "Religious",
+      "yearBuilt": 1882,
+      "description": "Famous unfinished basilica designed by Antoni Gaudí.",
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "favourite": true,
+      "image": "/images/sagrada.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Grand Canyon",
+      "country": "USA",
+      "city": "Arizona",
+      "type": "Natural",
+      "yearBuilt": null,
+      "description": "Massive canyon carved by the Colorado River.",
+      "latitude": 36.1069,
+      "longitude": -112.1129,
+      "favourite": true,
+      "image": "/images/grandCanyon.jpg"
     }
   ]
 }
