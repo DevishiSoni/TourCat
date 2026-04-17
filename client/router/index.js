@@ -1,20 +1,40 @@
-//client/router/index.js
+// Router (frontend)
 import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../pages/Home.vue'
+import Landmarks from '../pages/Landmarks.vue'
+import Details from '../pages/Details.vue'
+import AddLandmark from '../pages/AddLandmark.vue'
+import Contact from '../pages/Contact.vue'
 
-// temporary simple pages
-const Home = { template: '<h2>Home Page</h2>' }
-const Landmarks = { template: '<h2>Landmarks Page</h2>' }
-const Store = { template: '<h2>Store Page</h2>' }
-const About = { template: '<h2>About Page</h2>' }
-
-const routes = [
-  { path: '/', component: Home },
-  { path: '/landmarks', component: Landmarks },
-  { path: '/store', component: Store },
-  { path: '/about', component: About }
-]
-
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/landmarks',
+      name: 'landmarks',
+      component: Landmarks
+    },
+    {
+      path: '/landmarks/:id',
+      name: 'details',
+      component: Details
+    },
+    {
+      path: '/add',
+      name: 'add',
+      component: AddLandmark
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
+    }
+  ]
 })
+
+export default router
