@@ -51,7 +51,7 @@
       "latitude": 40.4319,
       "longitude": 116.5704,
       "favourite": true,
-      "image": "/images/greatWall.jpg"
+      "image": "/images/china.jpg"
     },
     {
       "id": 5,
@@ -116,7 +116,7 @@
       "latitude": -22.9519,
       "longitude": -43.2105,
       "favourite": true,
-      "image": "/images/redeemer.jpg"
+      "image": "/images/theRedeemerStatue.jpg"
     },
     {
       "id": 10,
