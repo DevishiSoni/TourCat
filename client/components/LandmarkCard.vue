@@ -88,6 +88,11 @@ const deleteLandmark = () => {
   cursor: pointer;
 }
 
+.card.clickable-card:hover {
+  background: aliceblue;
+  box-shadow: 0 0 0 2px lightblue, 0 2px 10px rgba(0,0,0,0.12);
+}
+
 .card.selected-card {
   background: whitesmoke;
   box-shadow: 0 0 0 2px lightgrey, 0 2px 8px rgba(0,0,0,0.1);
