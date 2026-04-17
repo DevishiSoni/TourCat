@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  root: './',  // ← add this explicitly
+  root: './',  // Set the root to the current directory
   plugins: [vue()],
   server: {
     port: 5173,

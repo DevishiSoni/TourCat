@@ -101,7 +101,7 @@ label, h1, h2{
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: transparent; /* <-- remove the #071520 so canvas shows through */
+  background: transparent; /*-- remove the background */
 }
 
 /* Add a background to .home instead so the page has a color */
@@ -117,14 +117,13 @@ label, h1, h2{
 
 .home {
   position: relative;
-  z-index: 1;  /* <-- this was sitting on top of the canvas */
-  background: transparent; /* <-- remove the #071520 from here too */
+  z-index: 1;  /* stays above canvas */
+  background: transparent; /* -- remove the background */
 }
 
 .hero-inner {
   position: relative;
   z-index: 2; /* stays above canvas */
-  /* rest unchanged */
 }
 body {
   background: #071520;

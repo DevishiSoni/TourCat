@@ -39,7 +39,6 @@
       "favourite": false,
       "image": "/images/statueOfLiberty.jpg"
     },
-
     {
       "id": 4,
       "name": "Great Wall of China",
@@ -131,7 +130,6 @@
       "favourite": false,
       "image": "/images/mountFuji.jpg"
     },
-
     {
       "id": 11,
       "name": "Machu Picchu",
@@ -141,7 +139,7 @@
       "yearBuilt": 1450,
       "description": "Incan citadel set high in the Andes Mountains.",
       "latitude": -13.1631,
-      "longitude": -72.5450,
+      "longitude": -72.545,
       "favourite": true,
       "image": "/images/machuPicchu.jpg"
     },
@@ -219,7 +217,7 @@
       "yearBuilt": 1150,
       "description": "Largest religious monument in the world.",
       "latitude": 13.4125,
-      "longitude": 103.8670,
+      "longitude": 103.867,
       "favourite": false,
       "image": "/images/angkor.jpg"
     },
@@ -259,7 +257,7 @@
       "description": "Massive canyon carved by the Colorado River.",
       "latitude": 36.1069,
       "longitude": -112.1129,
-      "favourite": true,
+      "favourite": "true",
       "image": "/images/grandCanyon.jpg"
     }
   ]
