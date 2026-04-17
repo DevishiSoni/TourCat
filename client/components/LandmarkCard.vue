@@ -5,14 +5,10 @@ const props = defineProps({
   landmark: Object
 })
 
-const emit = defineEmits(['view', 'edit', 'delete'])
-
-// local favourite state
-const isFavourite = ref(props.landmark.favourite)
+const emit = defineEmits(['select', 'view', 'edit', 'delete', 'favourite'])
 
 // toggle heart
 const toggleFavourite = () => {
-  isFavourite.value = !isFavourite.value
   emit('favourite', props.landmark.id)
 }
 
@@ -21,6 +17,11 @@ const showMenu = ref(false)
 
 const toggleMenu = () => {
   showMenu.value = !showMenu.value
+}
+
+// card selection for map movement
+const selectLandmark = () => {
+  emit('select', props.landmark.id)
 }
 
 // actions
@@ -41,11 +42,11 @@ const deleteLandmark = () => {
 </script>
 
 <template>
-  <div class="card">
+  <div class="card clickable-card" @click="selectLandmark">
 
     <!-- Heart Icon -->
-    <button class="heart-btn" @click="toggleFavourite">
-        <span :class="{ fav: isFavourite }">♥</span>
+    <button class="heart-btn" @click.stop="toggleFavourite">
+        <span :class="{ fav: landmark.favourite }">♥</span>
     </button>
 
     <!-- Top bar -->
@@ -53,13 +54,13 @@ const deleteLandmark = () => {
       <h3>{{landmark.name}}</h3>
 
       <!-- 3 dots -->
-      <button class="menu-btn" @click="toggleMenu">⋮</button>
+      <button class="menu-btn" @click.stop="toggleMenu">⋮</button>
 
       <!-- Dropdown -->
-      <div v-if="showMenu" class="dropdown">
-        <div @click="viewDetails">View Details</div>
-        <div @click="editLandmark">Edit</div>
-        <div @click="deleteLandmark">Delete</div>
+      <div v-if="showMenu" class="dropdown" @click.stop>
+        <div @click.stop="viewDetails">View Details</div>
+        <div @click.stop="editLandmark">Edit</div>
+        <div @click.stop="deleteLandmark">Delete</div>
       </div>
     </div>
 

@@ -49,7 +49,7 @@
       "description": "Ancient series of walls and fortifications across northern China.",
       "latitude": 40.4319,
       "longitude": 116.5704,
-      "favourite": false,
+      "favourite": true,
       "image": "/images/china.jpg"
     },
     {
@@ -62,7 +62,7 @@
       "description": "White marble mausoleum built by Mughal emperor Shah Jahan.",
       "latitude": 27.1751,
       "longitude": 78.0421,
-      "favourite": false,
+      "favourite": true,
       "image": "/images/tajMahal.jpg"
     },
     {
