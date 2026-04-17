@@ -8,11 +8,12 @@ import { getLocations } from '../src/services/clientServices.js'
 const landmarks = ref([])
 const loading = ref(true)
 const error = ref('')
+const showFavourites = ref(false)
 
 const totalLandmarks = computed(() => landmarks.value.length)
 
-const favouriteCount = computed(() =>
-  landmarks.value.filter((landmark) => landmark.favourite).length
+const favouriteLandmarks = computed(() =>
+  landmarks.value.filter((landmark) => landmark.favourite)
 )
 
 const countryCount = computed(() =>
@@ -57,7 +58,29 @@ onMounted(async () => {
     <div class="hero">
       <h1>Welcome to TourCat</h1>
       <p class="subtitle">Discover The World!</p>
-      <p class="subtitle">Your Favourites: {{ favouriteCount }}</p>
+
+      <div class="favourites-dropdown">
+        <button class="fav-toggle" @click="showFavourites = !showFavourites">
+          Your Favourites
+          <span class="dropdown-arrow">{{ showFavourites ? '▲' : '▼' }}</span>
+          : {{ favouriteLandmarks.length }}
+        </button>
+
+        <ul v-if="showFavourites" class="fav-list">
+          <li v-if="favouriteLandmarks.length === 0" class="fav-empty">
+            No favourites yet
+          </li>
+          <li
+            v-for="landmark in favouriteLandmarks"
+            v-else
+            :key="landmark.id"
+            class="fav-item"
+          >
+            {{ landmark.name }}
+          </li>
+        </ul>
+      </div>
+
       <RouterLink to="/landmarks" class="cta-btn">Explore Landmarks</RouterLink>
     </div>
 
@@ -111,6 +134,46 @@ onMounted(async () => {
   font-size: 20px;
   color: #777777;
   margin-bottom: 32px;
+}
+
+/* favourites dropdown */
+.favourites-dropdown {
+  margin-bottom: 32px;
+}
+
+.fav-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #777777;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.dropdown-arrow {
+  font-size: 14px;
+}
+
+.fav-list {
+  list-style: none;
+  margin: 12px auto 0;
+  padding: 12px 16px;
+  max-width: 320px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.fav-item {
+  padding: 4px 0;
+  color: #444444;
+}
+
+.fav-empty {
+  color: #777777;
 }
 
 .cta-btn {
