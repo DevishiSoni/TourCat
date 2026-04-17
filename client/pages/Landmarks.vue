@@ -1,9 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import LandmarkCard from '../components/LandmarkCard.vue'
 import MapPanel from '../components/MapPanel.vue'
 import { updateLandmark, deleteLandmark as deleteLandmarkAPI } from '../src/services/clientServices.js'
 import { useRouter } from 'vue-router'
+import $ from 'jquery'
 
 const router = useRouter()
 const landmarks = ref([])
@@ -11,6 +12,7 @@ const selectedLandmark = ref(null)
 const search = ref('')
 const selectedCountry = ref('')
 const selectedType = ref('')
+const gridRef = ref(null)
 
 const goToDetails = (id) => {
   router.push(`/landmarks/${id}`)
@@ -55,6 +57,21 @@ const toggleFavourite = async (id) => {
     console.error(err)
   }
 }
+
+// click handler for jQuery
+onMounted(() => {
+  if (!gridRef.value) return
+
+  $(gridRef.value).on('click.landmarkSelection', '.clickable-card', function () {
+    $(gridRef.value).find('.clickable-card').removeClass('selected-card')
+    $(this).addClass('selected-card')
+  })
+})
+
+onBeforeUnmount(() => {
+  if (!gridRef.value) return
+  $(gridRef.value).off('.landmarkSelection')
+})
 
 // fetch data
 onMounted(async () => {
@@ -146,7 +163,7 @@ onMounted(fetchLandmarks)
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid">
+    <div ref="gridRef" class="grid">
       <LandmarkCard
         v-for="landmark in landmarks"
         :key="landmark.id"
