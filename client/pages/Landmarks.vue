@@ -105,19 +105,33 @@ const fetchLandmarks = async () => {
 
     // Search by city
     if (search.value) {
-      url += `city=${search.value}`
+      url += `city=${search.value}&`
     }
     
-    // Dropdown country filter
+
+    const res = await fetch(url)
+    const data = await res.json()
+
+    landmarks.value = data
+  } catch (err) {
+    console.error("FETCH ERROR:", err)
+  }
+}
+
+const fetchLandmarksFilter = async () => {
+  try {
+    let url = 'http://localhost:3000/api/landmarks?'
+
+    // Dropdown country filter  
     if (selectedCountry.value) {
       url += `country=${selectedCountry.value}&`
-    }
+      }
 
     // Type filter
     if (selectedType.value) {
       url += `type=${selectedType.value}&`
     }
-
+    
     const res = await fetch(url)
     const data = await res.json()
 
@@ -143,14 +157,14 @@ onMounted(fetchLandmarks)
         @input="fetchLandmarks"
         placeholder="Search by city..."
       />
-      <select v-model="selectedCountry" @change="fetchLandmarks"> <!-- Country filter dropdown dynamically populated -->
-  <option value="">All Countries</option>
-  <option v-for="country in countries" :key="country" :value="country">
+      <select v-model="selectedCountry" @change="fetchLandmarksFilter"> <!-- Country filter dropdown dynamically populated -->
+      <option value="">All Countries</option>
+      <option v-for="country in countries" :key="country" :value="country">
     {{ country }}
   </option>
 </select>
 
-      <select v-model="selectedType" @change="fetchLandmarks">
+      <select v-model="selectedType" @change="fetchLandmarksFilter">
         <option value="">All Types</option>
         <option value="Historical">Historical</option>
         <option value="Modern">Modern</option>

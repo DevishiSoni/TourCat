@@ -1,0 +1,39 @@
+Below is a list of all the AI prompts that were used by each group member
+
+Devishi:
+- “I’m getting this huge error while merging my branch to main what does it mean {error message}”
+- “I want to add a border to my heart icon how can I do that? ”
+- “How can I add a feature so that the user is prompted to send an email directly from their gmail?”
+- “What does this error mean {error message}”
+- “Can you make me a custom logo? Kind of related to the theme of the meme “The world is just a cat playing with australia””
+
+Trevor:
+- “What is this doing? {code block}”
+- “Help pls :( {long error}”
+- “Any suggestions to make this chart look a little cleaner?”
+- “Am I toggling this right?”
+- “Any suggestions on how I could implement jQuery in this code?”
+
+Caelen
+- “Break down this code for me <Code snippet>”
+- “Help with generation of a test landmark”
+- “Explain this error to me <Error>”
+- “Questions about axios, what methods do such as post and patch do”
+
+Matthew
+- “How do I run this part of the code?”
+- “What file structure is best?”
+- “How do I use the tree command and list only folders with less than 4 files?”
+- “What is the difference between port 4173 and 5173 in vue?”
+- “What would an animated background look like?”
+
+
+
+Eve
+- “How to make sure the API is actually working.”
+- “How would I take this on {enter instructions}?”
+- “Debug this code {enter code}.”
+- “What does this code do {enter code}?”
+- “How do I use API endpoints/routes here?”
+- “What requirements am I covering with this?”
+- “How does this code look {insert code}?”
