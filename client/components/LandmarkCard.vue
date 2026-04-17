@@ -58,9 +58,9 @@ const deleteLandmark = () => {
 
       <!-- Dropdown -->
       <div v-if="showMenu" class="dropdown" @click.stop>
-        <div @click.stop="viewDetails">View Details</div>
-        <div @click.stop="editLandmark">Edit</div>
-        <div @click.stop="deleteLandmark">Delete</div>
+      <div @click="$emit('view', landmark.id)">View Details</div>
+      <div @click="$emit('edit', landmark.id)">Edit</div>
+      <div @click="$emit('delete', landmark.id)">Delete</div>
       </div>
     </div>
 

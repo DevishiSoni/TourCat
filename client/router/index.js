@@ -33,6 +33,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: Contact
+    },
+    {
+      path: '/landmarks/:id',
+      name: 'Details',
+      component: () => import('../pages/Details.vue')
     }
   ]
 })
